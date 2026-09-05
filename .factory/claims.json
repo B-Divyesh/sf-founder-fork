@@ -1,0 +1,86 @@
+[
+  {
+    "id": "four-turn-end",
+    "claim": "Every match ends after four turns with a final result.",
+    "where": "game board, README",
+    "test": "npm run test:claims -- --grep \"@claim:four-turn-end\"",
+    "sandbox": "fresh browser context at /demo; resolve the two remaining turns; assert four ledger rows and a non-draw end screen"
+  },
+  {
+    "id": "restart-reset",
+    "claim": "Restart resets the turns, score, and placed tokens.",
+    "where": "game board, README",
+    "test": "npm run test:claims -- --grep \"@claim:restart-reset\"",
+    "sandbox": "fresh browser context at /demo; resolve a turn; confirm restart; assert turn one, zero scores, an empty ledger, and no tokens"
+  },
+  {
+    "id": "settings-persist",
+    "claim": "Sound starts off, and sound and motion settings stay in this browser.",
+    "where": "settings dialog, README",
+    "test": "npm run test:claims -- --grep \"@claim:settings-persist\"",
+    "sandbox": "enter through /demo, start the real game, change both settings, reload, and assert both saved values"
+  },
+  {
+    "id": "third-party-requests",
+    "claim": "Normal play makes no requests to third-party services.",
+    "where": "privacy page, README",
+    "test": "npm run test:claims -- --grep \"@claim:third-party-requests\"",
+    "sandbox": "fresh browser context at /demo; record every request through the end screen and assert that every origin is the product origin"
+  },
+  {
+    "id": "local-progress",
+    "claim": "Daily match progress stays in this browser.",
+    "where": "landing facts, privacy page, README",
+    "test": "npm run test:claims -- --grep \"@claim:local-progress\"",
+    "sandbox": "fresh browser context at /; resolve one turn, assert that a local saved match exists, reload, and assert turn two resumes"
+  },
+  {
+    "id": "demo-sandbox",
+    "claim": "The sample does not read or change the saved daily match.",
+    "where": "demo banner, privacy page, demo documentation",
+    "test": "npm run test:claims -- --grep \"@claim:demo-sandbox\"",
+    "sandbox": "save one real turn, enter /demo, play and reset, leave demo, and compare the exact real storage value"
+  },
+  {
+    "id": "async-challenge",
+    "claim": "A challenge link lets a second player face the creator's four hidden choices and resume after a reload.",
+    "where": "end screen, privacy page, README",
+    "test": "npm run test:claims -- --grep \"@claim:async-challenge\"",
+    "sandbox": "creator finishes a real match and opens its link in an independent browser context; second player resolves one turn, reloads, finishes, and sees the creator plan"
+  },
+  {
+    "id": "keyboard-play",
+    "claim": "The full turn can be played with 1–3, Q–E, and Enter.",
+    "where": "game controls, README",
+    "test": "npm run test:claims -- --grep \"@claim:keyboard-play\"",
+    "sandbox": "fresh browser context at /demo; use only 1, Q, and Enter; assert the next turn and new ledger row"
+  },
+  {
+    "id": "frame-rate",
+    "claim": "The board loop targets 60 frames per second on a phone-sized screen.",
+    "where": "game board, README",
+    "test": "npm run test:claims -- --grep \"@claim:frame-rate\"",
+    "sandbox": "dedicated 390 by 844 browser context; sample requestAnimationFrame rate for 1.5 seconds and assert 45–75 fps"
+  },
+  {
+    "id": "daily-seed",
+    "claim": "The same daily seed keeps the board, events, and opponent plan unchanged.",
+    "where": "game board, design document, README",
+    "test": "npm run test:claims -- --grep \"@claim:daily-seed\"",
+    "sandbox": "fresh browser context at /demo; capture the full board, reload the same seed, and compare the observable board"
+  },
+  {
+    "id": "free-play",
+    "claim": "The complete game is free and needs no account.",
+    "where": "landing facts, terms, README",
+    "test": "npm run test:claims -- --grep \"@claim:free-play\"",
+    "sandbox": "fresh browser context at /demo; finish the match and assert there is no sign-in, account, or checkout step"
+  },
+  {
+    "id": "five-minute-match",
+    "claim": "A match is designed to finish in about five minutes.",
+    "where": "README",
+    "test": "npm run test:claims -- --grep \"@claim:five-minute-match\"",
+    "sandbox": "fresh browser context at /demo; restart at turn one, time four turns and the end-screen render, and assert under 300 seconds"
+  }
+]
