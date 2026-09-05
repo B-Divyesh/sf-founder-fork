@@ -1,0 +1,32 @@
+{
+  "slug": "founder-fork",
+  "title": "Founder Fork",
+  "territory": "games-creative",
+  "user": "Friends who enjoy quick strategic puzzles and startup satire, and want a daily simultaneous-choice game that is playful without requiring real business knowledge or an account.",
+  "evidence": [
+    {
+      "url": "https://hn.algolia.com/api/v1/items/49512203",
+      "date": "2026-08-31",
+      "quote_or_summary": "A 2026 HN post announces a daily puzzle game specifically for founders, directly signaling that a recognizable professional community will try a compact themed daily strategy game."
+    },
+    {
+      "url": "https://www.startup-chess.com",
+      "date": "2026-09-01",
+      "quote_or_summary": "The fetched live Startup Chess page is the public game page linked from that HN discussion."
+    }
+  ],
+  "recurrence": "This is a direct, current daily-game experiment aimed at an identifiable community. It suggests themed strategic play can travel through a community, but 'chess for X' is too close to a clone proposition.",
+  "current_workaround": "Play chess puzzles, use a generic daily game, or discuss startup hypotheticals in group chat.",
+  "incumbents_and_gap": "Chess variants and founder-themed games provide familiar framing, but they can demand domain knowledge or reproduce chess. There is room for a five-minute simultaneous decision puzzle where the theme is legible but not required.",
+  "smallest_useful_product": "A daily two-player-or-bot 'launch week' duel: each side secretly chooses one of three product bets, then places one public resource token; choices resolve together for four turns. The seed changes event cards and map goals. Non-goals: real-company data, investment advice, networking, chat, or chess movement rules.",
+  "success_measure": "At least 40% of first players finish a four-turn match, and 20% send a challenge link or play the next daily seed within 48 hours.",
+  "artifact_class": "browser-game",
+  "monetization": "free \u2014 community sharing and playful satire are the acquisition loop; a one-time alternate-theme pack can be considered only after organic retention.",
+  "constraints": "Use fictional companies and events; clearly label as satire, not business advice; deterministic async resolution; no accounts required for bot play.",
+  "est_build_effort": "S",
+  "scale": "small",
+  "why_distinct": "It uses simultaneous hidden choices and short tactical maps, rather than a startup reskin of chess or a productivity tool for founders.",
+  "confidence": 3,
+  "state": "RESEARCHED",
+  "research_run": "research-browser-games-0901-204337-3"
+}
