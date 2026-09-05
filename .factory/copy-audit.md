@@ -16,6 +16,15 @@ banned marketing word appears.
 | The opponent's placement is visible before you commit. | 9 |
 | Resolved turns will appear here. | 5 |
 | Choose a bet and a map goal to play turn one. | 11 |
+| Learn earns 1 extra point this turn. | 7 |
+| Build earns 1 extra point this turn. | 7 |
+| Buzz earns 1 extra point this turn. | 7 |
+| Win attention from early testers. | 5 |
+| Learn what people need. | 4 |
+| Ship a working product. | 4 |
+| Make a reliable first impression. | 5 |
+| Turn reactions into direction. | 4 |
+| Help the right people find it. | 6 |
 | Learn beats Build. | 3 |
 | Build beats Buzz. | 3 |
 | Buzz beats Learn. | 3 |
@@ -33,9 +42,9 @@ banned marketing word appears.
 | The editorial scene was generated for this game. | 8 |
 | The board art and icons are original. | 7 |
 
-Dynamic event descriptions are also within the limit: each contains 7–8 words.
-Error and recovery text ranges from 6–13 words. Button labels range from 1–6
-words and start with the result where space allows.
+Every event and map-goal sentence is included above. Error and recovery
+sentences contain 4–11 words. Button labels contain 1–6 words and name their
+result where space allows.
 
 ## Terminology
 
