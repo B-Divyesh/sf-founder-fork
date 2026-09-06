@@ -6,7 +6,7 @@
 - Job: finish a deterministic four-turn duel by choosing a hidden bet and a
   public map goal each turn.
 - First action: select **Try it with sample data** on the first screen.
-- Implementation and deployed SHA: `0103cf7`.
+- Implementation and deployed SHA: `7ff658f`.
 - Deployment: product-owned Static Web App `sf-founder-fork` in `centralus`.
 - Live origin: `https://founder-fork.sociobot.in`.
 - No paid offer exists. No billing metadata or checkout was added.
@@ -230,3 +230,27 @@ Reports and evidence:
 - `/work/.evidence/qa-report.md`
 - `/work/.evidence/qa-result.json`
 - `/work/.evidence/founder-fork-review-1/`
+
+## Strict review 2
+
+Strict review 2 completed on 6 September 2026 against implementation
+`7ff658f`, test-only follow-up `3acca02`, and documentation baseline
+`92b9898`. Verdict: **FAIL** with one minor finding and one untested public
+claim. The report is `.factory/review-2.md`.
+
+Fresh desktop and phone browsers completed the sample through the 6–13
+**Opponent wins** end screen, replayed and reset it, proved sample isolation,
+and exercised settings, keyboard, touch, reduced motion, privacy deletion,
+recovery, legal routes, the designed 404, and an independent two-client
+challenge with reload. Full axe scans had zero violations. Fresh Lighthouse
+mobile and desktop runs scored 100 in all four categories. A clean checkout
+passed 5 unit tests, all 13 claim commands separately, all 35 browser tests,
+the production build, and budgets. Live JavaScript and CSS hashes match the
+clean build.
+
+The blocker is FF-R2-001: the live sentence “Each day reshuffles the events,
+map goals, and opponent plan” has no matching declared outcome test. The
+`daily-seed` claim only proves that one seed remains stable after reload, and
+a 3,652-transition diagnostic found 41 dates where at least one named output
+group stayed unchanged. No product code was changed during review. Evidence
+is under `/work/.evidence/founder-fork-review-2/`.
