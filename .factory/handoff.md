@@ -254,3 +254,95 @@ map goals, and opponent plan” has no matching declared outcome test. The
 a 3,652-transition diagnostic found 41 dates where at least one named output
 group stayed unchanged. No product code was changed during review. Evidence
 is under `/work/.evidence/founder-fork-review-2/`.
+
+## Repair 2
+
+### Release status
+
+- **PASS.** FF-R2-001 is resolved with no remaining product defect.
+- Product implementation deployed to production: `2b35ddf`
+  (`2b35ddf2f5d2ff81cd6e17ec3a0add62084e9420`).
+- Documentation is a later handoff-only commit; the implementation SHA above
+  is the deployed product image.
+- Deployment reused the product-owned Static Web App `sf-founder-fork` in
+  `centralus`. No backend, shared database, billing, or external integration
+  was added.
+- Live origin: `https://founder-fork.sociobot.in`.
+
+### What changed
+
+- Replaced the unreliable statement that every named output group reshuffles
+  each day. The page now says that one daily seed keeps events, map goals, and
+  the opponent plan fixed for that day.
+- Updated the declared `daily-seed` claim to match the public statement.
+- Replaced the single-page reload check with an outcome check across two
+  isolated clients. Both clients use the same fixed date, complete all four
+  turns with the same choices, and must show the same map goals, four events,
+  public opponent placements, and revealed opponent choices.
+- Expanded the unit regression to compare goals, events, and the opponent plan
+  for a repeated seed. Updated the copy audit and release marker to `1.0.1`.
+- The catalog description remains verb-first and under 120 characters. It was
+  copied to `/work/.evidence/catalog-description.txt`.
+
+### Verification
+
+All clean checks ran from detached checkout `2b35ddf` after
+`npm ci --include=dev` with Node `v22.23.2` and npm `10.9.8`.
+
+- `npm run test:unit`: 5/5 passed.
+- Every one of the 13 exact commands in `.factory/claims.json`: passed
+  separately, including the expanded `daily-seed` run.
+- `npm test`: 35/35 Playwright checks passed.
+- `npm run build`: passed and produced `dist/`.
+- `npm run test:budget`: 10,373-byte gzip JavaScript, 5,033-byte gzip CSS,
+  and a 26,903-byte mobile AVIF scene.
+- Local Playwright axe checks found no serious or critical issues on all
+  required routes.
+
+Cold HTTPS verification after deployment:
+
+- `/`, `/demo`, `/privacy`, and `/terms`: HTTP 200. An unknown route returned
+  the intended HTTP 404 with the designed return page.
+- `verify-url.sh`: 787 ms load, one H1, English language, a main landmark,
+  complete image alt text, labelled buttons, and no console errors.
+- Fresh live axe scans found zero violations of any severity on home, demo,
+  privacy, terms, the static 404, and the intended HTTP 404.
+- Fresh 1440 × 900 and touch-enabled 390 × 844 clients saw the job, audience,
+  first action, and live board before scrolling. Both populated samples reached
+  **Opponent wins** at 6–13 with four ledger rows. Reset restored turn three
+  with two populated rows and the persistent sample label. Returning to real
+  play preserved an exact pre-demo storage snapshot.
+- The live phone board measured 60 fps. All visible phone controls met the
+  44 px minimum. Reduced motion produced a `0.00001s` transition duration.
+- Two independent live clients completed a challenge. The second client
+  resumed after reload and revealed the creator choices Learn, Build, Buzz,
+  Learn.
+- Privacy deletion preserved data after cancellation, then removed daily,
+  settings, and challenge data after confirmation.
+- Live Lighthouse mobile and desktop scored 100 in performance,
+  accessibility, best practices, and SEO. Mobile LCP was 1,076 ms, CLS 0,
+  and TBT 12.5 ms. Desktop LCP was 294 ms, CLS 0, and TBT 0 ms.
+- Live JavaScript SHA-256
+  `85375d505edec199514fc437fe2fd7134953439c2d20e83a4906c188ec1b5e2c`
+  and CSS SHA-256
+  `c43eb0ff873150ce50bcdc0c218bd791b5f4e1a041063b6cab46c6c8da091e49`
+  exactly match the clean build.
+
+Evidence is under `/work/.evidence/founder-fork-repair-2/`.
+
+### Finding disposition and known gaps
+
+- **FF-R2-001 (minor): resolved.** The public sentence no longer promises a
+  different value in every generated group on every date. Its narrower
+  same-day result is declared and tested through complete independent runs.
+- **FF-V1-001 remains resolved.** The keyboard copy still distinguishes Enter
+  on links and buttons from Space on buttons. Its exact claim passed again.
+- All earlier builder findings remain covered by the passing full suite:
+  conversion and type setup, report output, touch auditing, reduced motion,
+  preview state, Lighthouse launch, target sizes, 200% reflow, challenge
+  reload, navigation announcement, saved-state validation, restart focus, and
+  blocked-storage recovery.
+- Completion and sharing targets still need voluntary playtesting because the
+  product has no analytics. Offline/update behavior remains unadvertised.
+  Challenges remain local-first async links, not live rooms or chat. These are
+  intentional scope limits.
