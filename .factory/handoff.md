@@ -201,3 +201,32 @@ reduced-motion, accessibility, route/404, and independent two-client async
 challenge checks passed. The deployed JS and CSS hashes match the clean build.
 
 Evidence: `/work/.evidence/founder-fork-verify-2/`.
+
+## Strict review 1
+
+Strict review completed on 6 September 2026. Verdict: **PASS** with zero
+findings and zero untested public claims. The implementation reviewed was
+`7ff658f` (`7ff658fd06a768661f81e609dfdb978179f208c3`); the latest
+documentation record was `b977bfd`
+(`b977bfddfa33fb6336603291728f84ca126e805a`). The documentation/report
+commit does not change product assets.
+
+A fresh desktop and phone browser showed the job, audience, first action, and
+live board before scrolling. The one-click sample was populated, retained its
+sample label, reset correctly, reached an actual end screen, and did not change
+real saved state. Fresh live runs covered settings, keyboard, reduced motion,
+60 fps, designed 404, privacy routes, expected HTTP 404 behavior, and an
+independent two-client async challenge with reload recovery.
+
+From a detached clean worktree at `8c076b5`, after `npm ci --include=dev`,
+5/5 unit tests, each of 13 claim commands separately, the 35/35 browser
+suite, build, and budget test passed. The deployed JavaScript and CSS hashes
+exactly match the clean build of the implementation candidate. All earlier
+minor findings, including FF-V1-001, remain resolved.
+
+Reports and evidence:
+
+- `.factory/review-1.md`
+- `/work/.evidence/qa-report.md`
+- `/work/.evidence/qa-result.json`
+- `/work/.evidence/founder-fork-review-1/`
