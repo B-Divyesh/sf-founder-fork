@@ -372,3 +372,24 @@ the designed HTTP 404, and an independent two-client challenge with reload.
 Live axe scans found zero violations on all required routes. Lighthouse mobile
 and desktop scored 100 in all four categories. Evidence is under
 `/work/.evidence/founder-fork-verify-3/`.
+
+## Strict review 4
+
+Strict review 4 completed on 6 September 2026 against implementation
+`2b35ddf` and documentation `272746c`. Verdict: **PASS** with zero findings
+and zero untested public claims. The implementation is unchanged after
+`2b35ddf`; later commits contain only handoff and verification records.
+
+Fresh live desktop and touch-phone runs showed the job, audience, action, and
+active board before scrolling. Both populated samples reached the actual
+four-turn end screen. Replay reset the game, Reset demo restored its labelled
+turn-three sample, and the phone reported 60 fps. Two independent live clients
+completed the async encoded challenge; the friend resumed after a reload and
+saw the creator's four decisions.
+
+From this clean checkout, `npm ci`, 5 unit tests, all 13 claims separately,
+the 35-test browser suite, build, and budgets passed. Live axe scans had zero
+violations on all product and 404 routes. Live JS and CSS hashes exactly match
+the clean candidate build. FF-V1-001 and FF-R2-001 remain resolved. The full
+record is `.factory/review-4.md`; copied result files are
+`/work/.evidence/qa-report.md` and `/work/.evidence/qa-result.json`.
