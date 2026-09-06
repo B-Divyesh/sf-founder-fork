@@ -109,6 +109,10 @@ test('@claim:keyboard-play number, letter, and Enter keys resolve a turn', async
 
 test('@claim:keyboard-controls Enter follows focused links and Space activates focused buttons', async ({ page }) => {
   await page.goto('/');
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.skip-link')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Founder Fork' })).toBeFocused();
   const sampleLink = page.getByRole('link', { name: 'Try it with sample data' });
   await sampleLink.focus();
   await page.keyboard.press('Enter');

@@ -60,7 +60,7 @@
     "claim": "Tab moves between controls, Enter follows focused links or activates focused buttons, and Space activates focused buttons.",
     "where": "README",
     "test": "npm run test:claims -- --grep \"@claim:keyboard-controls\"",
-    "sandbox": "fresh browser context at /; focus the sample link and press Enter, then focus Reset demo and press Space; assert both route and reset outcomes"
+    "sandbox": "fresh browser context at /; press Tab to move focus, press Enter on the sample link, then focus Reset demo and press Space; assert focus, route, and reset outcomes"
   },
   {
     "id": "frame-rate",
