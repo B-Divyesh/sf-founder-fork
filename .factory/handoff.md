@@ -349,3 +349,26 @@ Evidence is under `/work/.evidence/founder-fork-repair-2/`.
   product has no analytics. Offline/update behavior remains unadvertised.
   Challenges remain local-first async links, not live rooms or chat. These are
   intentional scope limits.
+
+## Independent verification 3
+
+Verification completed on 6 September 2026 against implementation `2b35ddf`
+and documentation `c6ce397`. Verdict: **PASS** with zero findings and zero
+untested public claims. The detailed record is `.factory/verification-3.md`.
+
+A separate clean clone passed `npm ci --include=dev`, 5 unit tests, every one
+of the 13 declared claim commands separately, all 35 browser tests, the
+production build, and asset budgets. The live JavaScript and CSS hashes match
+that clean build exactly.
+
+Fresh phone and desktop recordings showed the job, audience, first action,
+and game before scrolling. Both populated samples reached the 6–13
+**Opponent wins** end screen, reset correctly, kept the sample label, and left
+the complete real storage snapshot unchanged. Live checks also passed for
+keyboard and focus, settings, reduced motion, 200% text, 44 px targets,
+privacy deletion, corrupt and blocked storage recovery, every route and link,
+the designed HTTP 404, and an independent two-client challenge with reload.
+
+Live axe scans found zero violations on all required routes. Lighthouse mobile
+and desktop scored 100 in all four categories. Evidence is under
+`/work/.evidence/founder-fork-verify-3/`.
