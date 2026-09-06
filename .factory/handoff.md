@@ -184,3 +184,20 @@ Cold HTTPS checks after deployment:
   voluntary playtesting. Offline/update behavior is not advertised and no
   service worker ships. Challenges are local-first async links, not live rooms
   or chat. These are intentional scope limits, not missing promised features.
+
+## Independent verification 2
+
+Verification completed on 6 September 2026 against implementation `7ff658f`,
+test-only follow-up `3acca02`, and documentation `8c076b5`. Verdict:
+**PASS** with zero findings and zero untested public claims. The detailed
+record is `.factory/verification-2.md`.
+
+From a separate clean clone with Node 22.23.2 and npm 10.9.8, 5 unit tests,
+all 13 claim commands run separately, the 35-test browser suite, build, and
+budgets passed. Live phone and desktop runs showed the job, audience, action,
+and game before scrolling. The populated sample reached an end screen, reset
+to its labelled seed, and did not change real storage. Live keyboard,
+reduced-motion, accessibility, route/404, and independent two-client async
+challenge checks passed. The deployed JS and CSS hashes match the clean build.
+
+Evidence: `/work/.evidence/founder-fork-verify-2/`.

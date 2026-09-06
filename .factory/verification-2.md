@@ -1,57 +1,96 @@
-# Play a four-turn startup strategy duel — repair verification 2
+# Play a four-turn startup strategy duel — verification 2
 
 **Verdict: PASS**
 
-- Previous failed verification: `d3685f4`
-- Production implementation: `7ff658f`
-- Verification-only follow-up: `3acca02`
+- Findings: **0**
+- Untested public claims: **0**
+- Implementation reviewed: `7ff658f` (`7ff658fd06a768661f81e609dfdb978179f208c3`)
+- Documentation and test follow-up reviewed: `8c076b5`
+- Test-only code follow-up: `3acca02`
 - Live URL: `https://founder-fork.sociobot.in`
 - Completed: 6 September 2026 UTC
 
-## Previous finding
+## Job, audience, and first action
 
-FF-V1-001 found a false README statement: Space was said to operate every
-control, but a focused sample link correctly followed native link behavior and
-only Enter opened it. The statement is now narrow and true. It documents Tab
-focus movement, Enter for focused links and buttons, and Space for focused
-buttons. A declared `keyboard-controls` claim proves all three outcomes.
+- Job: finish a four-turn strategy duel by choosing a hidden bet and a public
+  map goal each turn.
+- Audience: friends who want a short strategy puzzle with startup satire, no
+  business knowledge, and no account.
+- First action: select **Try it with sample data**.
 
-## Clean verification
+Fresh 1440 × 900 and 390 × 844 live browser contexts showed all three points
+and the game board before scrolling. The phone had zero horizontal overflow.
 
-A fresh clone of `3acca02` ran `npm ci` with Node 22.23.2 and npm 10.9.8.
+## Clean checkout verification
 
-- 5 unit tests passed.
-- All 13 declared claim commands passed separately; their final status is 0.
-- The full Playwright suite passed 35/35 tests.
-- The build produced `dist/`.
-- Budget results: 10,363-byte gzip JavaScript, 5,033-byte gzip CSS, and a
-  26,903-byte mobile scene.
+A separate clone at `8c076b5` was installed with Node `v22.23.2` and npm
+`10.9.8` (`npm ci --include=dev`).
 
-The browser suite includes axe scans for home, demo, privacy, terms, unknown
-route, and static 404. It also covers keyboard focus, 44-pixel targets, phone
-layout, 200% text, reduced motion, saved-state recovery, privacy deletion,
-route navigation, internal links, and a two-client challenge reload.
+- `npm run test:unit`: 5/5 passed.
+- Each of the 13 commands declared in `.factory/claims.json` passed separately.
+- `npm test`: 35/35 passed.
+- `npm run build`: passed and wrote `dist/`.
+- `npm run test:budget`: 10,363-byte gzip JavaScript, 5,033-byte gzip CSS,
+  and a 26,903-byte mobile scene.
 
-## Cold live verification
+The full browser suite covered normal play, invalid challenge recovery,
+corrupt/inconsistent/blocked storage recovery, privacy deletion confirmation,
+links and route titles, keyboard focus, 44 px touch targets, 200% text,
+reduced motion, all required routes and the designed 404. Its local axe scans
+found no serious or critical violations.
 
-`verify-url.sh` returned a 200 response in 768 ms with no console errors, one
-H1, English page language, a main landmark, no missing image alt text, and no
-unlabelled buttons. The expected unknown-route response was HTTP 404 and
-showed the product’s return path.
+## Declared claims
 
-Fresh 1440 × 900 and 390 × 844 browser contexts both showed the job, audience,
-sample action, and game board before scrolling. The desktop run saved one real
-turn, opened the sample with Enter, reached the `Opponent wins` end screen,
-reset the sample with Space, and confirmed the real saved state was byte-for-
-byte unchanged. A second live context completed the async challenge after a
-reload and saw the creator plan in order.
+All 13 declared claims passed independently: four-turn end, restart reset,
+settings persistence, no third-party requests, local progress, demo isolation,
+async challenge reload, keyboard play, documented keyboard controls, frame
+rate, daily seed, free play without an account, and the five-minute match.
 
-The live JavaScript matched the clean build by SHA-256:
-`78cb8d69af82815dd5c01a88e54916f5446fc2ce7465d18ad920fbe899ca670c`.
-The later follow-up changes only test and report files, so no second product
-image was needed after the successful production deployment.
+No unlisted public claim was found in the landing page, README, privacy page,
+or terms that changes what a visitor can rely on. Offline and update behavior
+are not promised; no service worker is shipped.
 
-Evidence is stored in `/work/.evidence/final-live-repair-1/`, including
-`phone-first-screen.png`, `desktop-populated-sample.png`,
-`desktop-sample-end-visible.png`, the recorded desktop run, and
-`live-run.json`.
+## Live verification
+
+- `/`, `/demo`, `/privacy`, `/terms`, `/404.html`, `robots.txt`, and
+  `sitemap.xml` returned 200. An unknown route returned the expected HTTP 404
+  and a complete designed return page.
+- The factory `verify-url.sh` cold check returned 200 in 658 ms with no
+  console errors, title, `lang="en"`, one H1, a main landmark, no missing
+  image alt text, and no unlabelled buttons.
+- Live axe scans on home, demo, privacy, terms, the unknown route, and static
+  404 found zero serious or critical violations. The browser's expected
+  network console entry for the deliberate HTTP 404 was excluded as specified
+  by the review contract.
+- A real daily turn was saved, then the live sample opened with two ledger
+  rows, four placed tokens, and the persistent **Demo — sample data, nothing
+  is saved** label. Two moves reached the actual **Opponent wins** end screen.
+  Reset restored populated turn three, and returning to real play proved the
+  saved real state was byte-for-byte unchanged.
+- Live keyboard checks proved Tab reached the skip link, Enter opened the
+  focused sample link, and Space reset the focused sample button. With reduced
+  motion, the live transition duration was `1e-05s`.
+- Separate live creator and friend browser contexts completed an async
+  challenge. The friend reloaded after turn one, resumed with one ledger row,
+  then finished and saw the creator plan Learn, Build, Buzz, Learn.
+- The deployed `index-DnYUMndI.js` and `index-B87S_nzk.css` SHA-256 values
+  exactly match the clean build. This proves the live runtime is the reviewed
+  implementation; `3acca02` and `8c076b5` do not alter its product assets.
+
+Evidence is under `/work/.evidence/founder-fork-verify-2/`.
+
+## Earlier findings
+
+**FF-V1-001 is resolved.** The README now correctly says Tab moves focus,
+Enter follows focused links or activates buttons, and Space activates buttons.
+The declared `keyboard-controls` claim passed locally and live.
+
+The older builder notes on image conversion, type declarations, report output,
+touch auditing, reduced motion, stale preview, Lighthouse launch, target size,
+200% text reflow, challenge reload, navigation announcement, state validation,
+restart focus, and blocked storage remain resolved. The clean build and the
+35-test regression suite exercised their current behavior.
+
+## Final result
+
+**PASS — zero findings and zero untested public claims.**
