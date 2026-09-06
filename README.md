@@ -26,7 +26,9 @@ fictional. The game is entertainment, not business or investment advice.
   four saved choices on the same board.
 
 Keyboard controls: `1`–`3` choose a bet, `Q`–`E` choose a map goal, and `Enter`
-resolves the turn. Tab, Enter, and Space also operate every control.
+resolves the turn. Press Tab to move between controls. Press Enter to follow a
+focused link or activate a focused button. Press Space to activate a focused
+button.
 
 Daily match and challenge progress stay in local storage in the browser.
 Real-game settings use the same storage. The sample uses memory only. Sound

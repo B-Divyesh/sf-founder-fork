@@ -107,6 +107,21 @@ test('@claim:keyboard-play number, letter, and Enter keys resolve a turn', async
   await expect(page.locator('.turn-track .current')).toContainText('4');
 });
 
+test('@claim:keyboard-controls Enter follows focused links and Space activates focused buttons', async ({ page }) => {
+  await page.goto('/');
+  const sampleLink = page.getByRole('link', { name: 'Try it with sample data' });
+  await sampleLink.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/demo$/);
+
+  await chooseAndResolve(page, 'buzz', 2);
+  const reset = page.getByRole('button', { name: 'Reset demo' });
+  await reset.focus();
+  await page.keyboard.press('Space');
+  await expect(page.locator('.turn-ledger li')).toHaveCount(2);
+  await expect(page.locator('.turn-track .current')).toContainText('3');
+});
+
 test('@claim:frame-rate board loop stays within the 60 fps target margin on a phone viewport', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
   const page = await context.newPage();

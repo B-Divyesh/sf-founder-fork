@@ -56,6 +56,13 @@
     "sandbox": "fresh browser context at /demo; use only 1, Q, and Enter; assert the next turn and new ledger row"
   },
   {
+    "id": "keyboard-controls",
+    "claim": "Tab moves between controls, Enter follows focused links or activates focused buttons, and Space activates focused buttons.",
+    "where": "README",
+    "test": "npm run test:claims -- --grep \"@claim:keyboard-controls\"",
+    "sandbox": "fresh browser context at /; focus the sample link and press Enter, then focus Reset demo and press Space; assert both route and reset outcomes"
+  },
+  {
     "id": "frame-rate",
     "claim": "The board loop targets 60 frames per second on a phone-sized screen.",
     "where": "game board, README",

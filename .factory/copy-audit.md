@@ -25,6 +25,9 @@ banned marketing word appears.
 | Make a reliable first impression. | 5 |
 | Turn reactions into direction. | 4 |
 | Help the right people find it. | 6 |
+| Press Tab to move between controls. | 6 |
+| Press Enter to follow a focused link or activate a focused button. | 12 |
+| Press Space to activate a focused button. | 8 |
 | Learn beats Build. | 3 |
 | Build beats Buzz. | 3 |
 | Buzz beats Learn. | 3 |
