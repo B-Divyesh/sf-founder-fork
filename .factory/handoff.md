@@ -307,6 +307,9 @@ Cold HTTPS verification after deployment:
   complete image alt text, labelled buttons, and no console errors.
 - Fresh live axe scans found zero violations of any severity on home, demo,
   privacy, terms, the static 404, and the intended HTTP 404.
+- A live full sample run requested only the product origin. Keyboard checks
+  passed for Tab focus, Enter on the sample link, `1`/`Q`/Enter turn play,
+  Space on Reset demo, and settings-dialog focus return.
 - Fresh 1440 × 900 and touch-enabled 390 × 844 clients saw the job, audience,
   first action, and live board before scrolling. Both populated samples reached
   **Opponent wins** at 6–13 with four ledger rows. Reset restored turn three
