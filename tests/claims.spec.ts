@@ -139,12 +139,46 @@ test('@claim:frame-rate board loop stays within the 60 fps target margin on a ph
   await context.close();
 });
 
-test('@claim:daily-seed a reload keeps the same board, event, and opponent placement', async ({ page }) => {
-  await page.goto('/');
-  const before = await page.locator('.section-kicker, .event-card, .lane-options').allTextContents();
-  await page.reload();
-  const after = await page.locator('.section-kicker, .event-card, .lane-options').allTextContents();
-  expect(after).toEqual(before);
+test('@claim:daily-seed independent clients get the same goals, events, and opponent plan', async ({ browser }) => {
+  const runs: Array<{
+    seed: string | null;
+    goals: string[];
+    events: string[];
+    opponentPlacements: Array<string | null>;
+    ledger: string[];
+  }> = [];
+
+  for (let run = 0; run < 2; run += 1) {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.clock.setFixedTime(new Date('2032-04-18T12:00:00Z'));
+    await page.goto('/');
+
+    const seed = await page.locator('.game-board .section-kicker').textContent();
+    const goals = await page.locator('[data-lane] .lane-copy, [data-lane] .lane-affinity').allTextContents();
+    const events: string[] = [];
+    const opponentPlacements: Array<string | null> = [];
+    for (let turn = 0; turn < 4; turn += 1) {
+      events.push((await page.locator('.event-card').innerText()).trim());
+      opponentPlacements.push(await page.locator('[data-lane]:has(.incoming-token)').getAttribute('data-lane'));
+      await chooseAndResolve(page, 'learn', turn % 3);
+    }
+
+    runs.push({
+      seed,
+      goals,
+      events,
+      opponentPlacements,
+      ledger: await page.locator('.turn-ledger li').allTextContents(),
+    });
+    await context.close();
+  }
+
+  expect(runs[0].goals).toHaveLength(6);
+  expect(runs[0].events).toHaveLength(4);
+  expect(runs[0].opponentPlacements).not.toContain(null);
+  expect(runs[0].ledger).toHaveLength(4);
+  expect(runs[1]).toEqual(runs[0]);
 });
 
 test('@claim:free-play a visitor completes the sample without an account or payment step', async ({ page }) => {

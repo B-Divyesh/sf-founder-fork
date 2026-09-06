@@ -1,6 +1,6 @@
 # Landing page copy audit
 
-Audited 2026-09-05 against the home route, populated daily board, and footer.
+Audited 2026-09-06 against the home route, populated daily board, and footer.
 Counts treat hyphenated terms as one word. No sentence exceeds 22 words and no
 banned marketing word appears.
 
@@ -37,7 +37,7 @@ banned marketing word appears.
 | Match its bonus to your bet for one point. | 9 |
 | Score the reveal and event. | 5 |
 | After four turns, map control decides the final points. | 9 |
-| Each day reshuffles the events, map goals, and opponent plan. | 10 |
+| One daily seed keeps the events, map goals, and opponent plan fixed for that day. | 15 |
 | Founder Fork uses fictional companies and events. | 7 |
 | It does not use real company data. | 7 |
 | There are no accounts, ads, payments, analytics, chat, or investment advice. | 11 |

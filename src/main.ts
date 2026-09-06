@@ -17,7 +17,7 @@ import {
 const REAL_GAME_KEY = 'founder-fork:game:v1';
 const SETTINGS_KEY = 'founder-fork:settings:v1';
 const CHALLENGE_GAME_PREFIX = 'founder-fork:challenge:v1:';
-const BUILD_ID = '1.0.0 · 2026.09.05';
+const BUILD_ID = '1.0.1 · 2026.09.06';
 const appElement = document.querySelector<HTMLDivElement>('#app');
 if (!appElement) throw new Error('The game could not start because its page container is missing.');
 const app: HTMLDivElement = appElement;
@@ -470,7 +470,7 @@ function homeMarkup(current: GameState, isChallenge = false): string {
             <source type="image/webp" srcset="/assets/sf-founder-fork-launch-table-768.webp 768w, /assets/sf-founder-fork-launch-table-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 760px" />
             <img src="/assets/sf-founder-fork-launch-table-768.jpg" width="768" height="512" loading="lazy" decoding="async" alt="An abstract paper game board shows three branching paths and four round pieces." />
           </picture>
-          <figcaption>Each day reshuffles the events, map goals, and opponent plan.</figcaption>
+          <figcaption>One daily seed keeps the events, map goals, and opponent plan fixed for that day.</figcaption>
         </figure>
       </section>
 

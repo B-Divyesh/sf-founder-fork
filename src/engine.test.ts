@@ -16,9 +16,14 @@ describe('deterministic game engine', () => {
     for (const bet of BETS) expect(compareBets(bet, bet)).toBe('tie');
   });
 
-  it('creates the same board and opponent plan for the same seed', () => {
-    expect(createGame('2026-09-05')).toEqual(createGame('2026-09-05'));
-    expect(createGame('2026-09-05').opponentPlan).not.toEqual(createGame('2026-09-06').opponentPlan);
+  it('creates the same goals, events, and opponent plan for the same seed', () => {
+    const first = createGame('2026-09-05');
+    const replay = createGame('2026-09-05');
+    expect({ lanes: replay.lanes, events: replay.events, opponentPlan: replay.opponentPlan }).toEqual({
+      lanes: first.lanes,
+      events: first.events,
+      opponentPlan: first.opponentPlan,
+    });
   });
 
   it('finishes after exactly four valid turns and awards map control', () => {

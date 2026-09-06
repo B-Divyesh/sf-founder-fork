@@ -71,10 +71,10 @@
   },
   {
     "id": "daily-seed",
-    "claim": "The same daily seed keeps the board, events, and opponent plan unchanged.",
-    "where": "game board, design document, README",
+    "claim": "One daily seed keeps the events, map goals, and opponent plan fixed for that day.",
+    "where": "landing page, design document",
     "test": "npm run test:claims -- --grep \"@claim:daily-seed\"",
-    "sandbox": "fresh browser context at /demo; capture the full board, reload the same seed, and compare the observable board"
+    "sandbox": "two isolated browser contexts on the same fixed date; complete both matches with the same choices and compare the visible seed, map goals, four events, opponent placements, and revealed opponent choices"
   },
   {
     "id": "free-play",
