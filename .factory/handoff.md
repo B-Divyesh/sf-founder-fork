@@ -393,3 +393,30 @@ violations on all product and 404 routes. Live JS and CSS hashes exactly match
 the clean candidate build. FF-V1-001 and FF-R2-001 remain resolved. The full
 record is `.factory/review-4.md`; copied result files are
 `/work/.evidence/qa-report.md` and `/work/.evidence/qa-result.json`.
+
+## Strict review 5
+
+Strict review 5 completed on 6 September 2026 against implementation
+`2b35ddf` and documentation `10dfe56a`. Verdict: **PASS** with zero findings
+and zero untested public claims. The implementation remains unchanged; the
+intervening commits are report-only.
+
+Fresh desktop and touch-phone clients showed the job, audience, first action,
+and board before scrolling. Each completed the populated sample through the
+6–13 **Opponent wins** end screen. Play again reset to turn one; Reset demo
+restored the labelled turn-three sample; and a saved real match was byte-for-
+byte unchanged after demo play. Phone touch controls passed with no overflow,
+all visible controls at least 44 px, and a 60 fps reading.
+
+Live checks passed for real settings persistence, keyboard controls, reduced
+motion, 200% text, corrupt and blocked-storage recovery, invalid challenge
+recovery, privacy routes, links, all legal pages, the designed HTTP 404, and
+an independent two-client challenge that resumed after reload. Live axe scans
+had zero violations. `verify-url.sh` found no console errors and confirmed the
+title, language, H1, main landmark, complete alt text, and labelled buttons.
+
+This clean checkout passed `npm ci --include=dev`, 5 unit tests, every one of
+the 13 declared claim commands separately, the 35-test browser suite, build,
+and budget check. Live JavaScript and CSS hashes exactly match the clean build
+of `2b35ddf`. The full record is `.factory/review-5.md`; final result files are
+`/work/.evidence/qa-report.md` and `/work/.evidence/qa-result.json`.
