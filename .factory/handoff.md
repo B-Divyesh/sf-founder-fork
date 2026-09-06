@@ -86,3 +86,21 @@ behavioral browser regression check.
 - Offline play is not advertised and no service worker ships in this release.
 - Challenge links are asynchronous and local-first; there is no live room or
   chat service, in line with the brief's scope.
+
+## Independent verification 1
+
+Verification completed on 6 September 2026 against implementation `0103cf7`
+and documentation `37b3a66`. The full report is
+`.factory/verification-1.md`.
+
+Verdict: **FAIL** with one minor finding and one untested public claim. All 12
+declared claim commands, 5 unit tests, 34 browser tests, the build, budgets,
+live phone and desktop play, two-client async challenge, accessibility checks,
+and live Lighthouse checks passed. Live JS and CSS exactly matched the clean
+build of the implementation candidate.
+
+The blocking finding is a README sentence claiming that Space operates every
+control. On the live **Try it with sample data** link, Space scrolled the page
+instead of opening the sample. The claim is also absent from
+`.factory/claims.json`. Narrow the sentence to standard link/button keyboard
+behavior, or implement Space for links and add an exact tagged claim test.
